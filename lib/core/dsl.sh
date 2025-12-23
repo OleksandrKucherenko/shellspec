@@ -231,7 +231,7 @@ shellspec_example() {
     shellspec_exit_status=$?
 
     # Signal watchdog to stop
-    rm -f "$SHELLSPEC_TIMEOUT_SIGNAL_FILE"
+    shellspec_rm -f "$SHELLSPEC_TIMEOUT_SIGNAL_FILE"
 
     # Check for timeout
     if [ -s "$SHELLSPEC_TIMEOUT_RESULT_FILE" ]; then
@@ -240,7 +240,7 @@ shellspec_example() {
     else
       shellspec_timeout_occurred=0
     fi
-    rm -f "$SHELLSPEC_TIMEOUT_RESULT_FILE"
+    shellspec_rm -f "$SHELLSPEC_TIMEOUT_RESULT_FILE"
   else
     # No timeout - execute normally
     ( set -e

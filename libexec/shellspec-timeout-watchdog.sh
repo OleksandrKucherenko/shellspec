@@ -3,6 +3,13 @@
 
 set -eu
 
+# Restore original PATH to access system utilities like sleep, rm
+# SHELLSPEC_PATH contains the original PATH before shellspec modified it
+if [ "${SHELLSPEC_PATH:-}" ]; then
+  PATH="$SHELLSPEC_PATH"
+  export PATH
+fi
+
 # Timeout watchdog process
 # Arguments:
 #   $1 = timeout_seconds
